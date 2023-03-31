@@ -3,14 +3,14 @@ require_once 'dbkoneksi.php';
 ?>
 <?php
 $_id = $_GET['id'];
-// select * from produk where id = $_id;
-//$sql = "SELECT a.*,b.nama as jenis FROM produk a
-//INNER JOIN jenis_produk b ON a.jenis_produk_id=b.id WHERE a.id=?";
-$sql = "SELECT * FROM produk WHERE id=?";
+// select * from pelanggan where id = $_id;
+//$sql = "SELECT a.*,b.nama as jenis FROM pelanggan a
+//INNER JOIN jenis_pelanggan b ON a.jenis_pelangan_id=b.id WHERE a.id=?";
+$sql = "SELECT * FROM pelanggan WHERE id=?";
 $st = $dbh->prepare($sql);
 $st->execute([$_id]);
 $row = $st->fetch();
-//echo 'NAMA PRODUK ' . $row['nama'];
+//echo 'NAMA PELANGGAN ' . $row['nama'];
 ?>
 
 <table class="table table-striped">
@@ -28,39 +28,33 @@ $row = $st->fetch();
             </td>
         </tr>
         <tr>
-            <td>Nama Produk</td>
+            <td>Jenis Kelamin</td>
             <td>
-                <?= $row['nama'] ?>
+                <?= $row['jk'] ?>
             </td>
         </tr>
         <tr>
-            <td>Harga Jual</td>
+            <td>Tempat Lahir</td>
             <td>
-                <?= $row['harga_jual'] ?>
+                <?= $row['tmp_lahir'] ?>
             </td>
         </tr>
         <tr>
-            <td>Harga Beli</td>
+            <td>Tanggal Lahir</td>
             <td>
-                <?= $row['harga_beli'] ?>
+                <?= $row['tgl_lahir'] ?>
             </td>
         </tr>
         <tr>
-            <td>Stok</td>
+            <td>Email</td>
             <td>
-                <?= $row['stok'] ?>
+                <?= $row['email'] ?>
             </td>
         </tr>
         <tr>
-            <td>Minimum Stok</td>
+            <td>Kartu ID</td>
             <td>
-                <?= $row['min_stok'] ?>
-            </td>
-        </tr>
-        <tr>
-            <td>Jenis Produk</td>
-            <td>
-                <?= $row['jenis_produk_id'] ?>
+                <?= $row['kartu_id'] ?>
             </td>
         </tr>
     </tbody>
