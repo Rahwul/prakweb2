@@ -5,6 +5,8 @@ use App\Http\Controllers\InputController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ForminputController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,3 +61,9 @@ Route::prefix('admin')->group(function (){
 //route untuk tampilan frountend
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/produk', [AboutController::class, 'index']);
+
+Route::prefix('frontend')->group(function (){
+    Route::get('/dashboard', [FrontendController::class, 'index']);
+    Route::get('/about', [AboutController::class, 'index']);
+    
+});
